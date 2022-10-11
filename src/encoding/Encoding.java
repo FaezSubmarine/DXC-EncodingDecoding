@@ -3,9 +3,8 @@ package encoding;
 public class Encoding extends BaseEncoding {
 	
 	public boolean pickWhichEncode(char choice) {
-		if(Character.toUpperCase(choice) == formerEncode ||
-		   Character.toUpperCase(choice) == latterEncode) {
-			encodeChoice = Character.toUpperCase(choice);
+		if(getIndexChart().containsKey(choice)) {
+			encodeChoice = choice;
 			return true;
 		}
 		return false;
@@ -16,8 +15,8 @@ public class Encoding extends BaseEncoding {
 		StringBuilder result = new StringBuilder();
 		result.append(encodeChoice);
 		for(int i = 0;i<plainText.length();++i) {
-			if(plainText.charAt(i)==' ') {
-				result.append(" ");
+			if(!getIndexChart().containsKey(plainText.charAt(i))) {
+				result.append(plainText.charAt(i));
 				continue;
 			}
 			int ogIndex = getIndexChart().get(plainText.charAt(i));

@@ -2,8 +2,6 @@ package encoding;
 
 import java.util.HashMap;
 public class BaseEncoding {
-	static final char formerEncode = 'B';
-	static final char latterEncode = 'F';
 	
 	protected char encodeChoice;
 	
@@ -17,7 +15,7 @@ public class BaseEncoding {
 		return indexChart;
 	}
 	protected int encodingNum() {
-		 return encodeChoice == formerEncode? 1:5;
+		 return indexChart.get(encodeChoice);
 	}
 	protected int loop(int subject) {
 		if(subject<0) {

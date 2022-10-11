@@ -4,8 +4,11 @@ public class Decoding extends BaseEncoding {
 	public String decode(String encodedText) {
 		encodeChoice = encodedText.charAt(0);
 		
+
 		String actualEncodedText = encodedText.substring(1);
-		
+		if(!getIndexChart().containsKey(encodeChoice)) {
+			return actualEncodedText;
+		}
 		StringBuilder result = new StringBuilder();
 		for(int i = 0;i<actualEncodedText.length();++i) {
 			if(actualEncodedText.charAt(i)==' ') {
