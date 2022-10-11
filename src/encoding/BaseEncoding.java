@@ -16,7 +16,9 @@ public class BaseEncoding {
 	public HashMap<Character,Integer> getIndexChart() {
 		return indexChart;
 	}
-	
+	protected int encodingNum() {
+		 return encodeChoice == formerEncode? 1:5;
+	}
 	protected int loop(int subject) {
 		if(subject<0) {
 			return 44+subject;

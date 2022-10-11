@@ -12,7 +12,6 @@ public class Encoding extends BaseEncoding {
 	}
 	
 	public String encode(String plainText) {
-		int encoding = encodeChoice == formerEncode? 1:5;
 		
 		StringBuilder result = new StringBuilder();
 		result.append(encodeChoice);
@@ -22,7 +21,7 @@ public class Encoding extends BaseEncoding {
 				continue;
 			}
 			int ogIndex = getIndexChart().get(plainText.charAt(i));
-			char newChar = getCharChart().get(loop(ogIndex-encoding));
+			char newChar = getCharChart().get(loop(ogIndex-encodingNum()));
 			
 			result.append(newChar);
 		}

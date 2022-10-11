@@ -2,12 +2,35 @@ package main;
 import java.util.Scanner;
 
 import encoding.Encoding;
+import encoding.Decoding;
 public class Main {
 
 	public static void main(String[] args) {
-		Encoding encoder = new Encoding();
+		
 		Scanner scan = new Scanner(System.in);
 		
+		System.out.println("would you like to encode or decode?");
+		if(Character.toLowerCase(scan.next().charAt(0))=='d') {
+			scan.nextLine();
+			decodeChoice(scan);
+		}
+		else {
+			scan.nextLine();
+			encodeChoice(scan);
+		}
+		
+	}
+	static void decodeChoice(Scanner scan) {
+		Decoding decoder = new Decoding();
+		System.out.println("Enter your String");
+		String subject = scan.nextLine();
+		
+		System.out.println(decoder.decode(subject));
+		
+	}
+	
+	static void encodeChoice(Scanner scan) {
+		Encoding encoder = new Encoding();
 		boolean encryptionChoice = false;
 		while(!encryptionChoice) {
 			System.out.println("Select your encryption choice:");
